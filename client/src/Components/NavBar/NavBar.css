@@ -1,0 +1,22 @@
+.NavBar {
+  width: 90%;
+  margin: auto;
+  padding: 35px 0;
+  display: flex;
+  list-style: none;
+  border: 2px solid yellow;
+  justify-content: flex-end;
+}
+
+.NavBar ul li {
+    font-size: 30px;
+    color: black;
+  border: 2px solid red;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.NavBar img {
+  border: 2px solid red;
+  width: 40px;
+}

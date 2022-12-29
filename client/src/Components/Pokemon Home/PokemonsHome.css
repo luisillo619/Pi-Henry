@@ -1,0 +1,25 @@
+.containerPokemonsHome {
+    border: 10px solid green;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 1085px) {
+    .containerPokemonsHome {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .containerPokemonsHome {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
+

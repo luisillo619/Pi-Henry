@@ -1,0 +1,24 @@
+/* P4, P1, P6*/
+.background-Card {
+  background-image: url(../../../src/assets/P6.png);
+  background-repeat: no-repeat;
+  background-size: 125%;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.containerCardPokemon {
+  border: 10px solid blue;
+  width: 350px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.imagenesPokemon {
+  width: 60%;
+  margin-bottom: 30px;
+}
+

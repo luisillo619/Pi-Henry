@@ -1,0 +1,17 @@
+.containerIndexHome {
+  padding: 10px;
+  border: 5px solid red;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url(../../../src/assets/charman.jpg);
+  background-position-x: 60%;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.red {
+  border: 111px solid yellow;
+}

@@ -1,0 +1,11 @@
+export const GET_POKEMONS = "GET_POKEMONS";
+export const GET_ONE_POKEMON = "GET_ONE_POKEMON";
+export const SERVER_ERROR = "SERVER_ERROR";
+export const GET_TYPES = "GET_TYPES";
+export const ADD_FILTER = "ADD_FILTER";
+export const TOTAL_PAGES = "TOTAL_PAGES";
+export const CURRENT_PAGE = "CURRENT_PAGE";
+export const RELOAD_POKEMONS = "RELOAD_POKEMONS";
+export const RESET_PAGE = "RESET_PAGE";
+export const GET_ONE_POKEMON_NAME = "GET_ONE_POKEMON_NAME"
+export const DELETE_POKEMON = "DELETE_POKEMON"

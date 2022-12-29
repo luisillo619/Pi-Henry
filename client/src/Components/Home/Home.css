@@ -1,0 +1,140 @@
+@import url("https://fonts.cdnfonts.com/css/pokemon-solid");
+/*Container general*/
+.containerHome {
+  min-height: 100vh;
+  background-image: url(../../assets/mundo.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position-y: -50px;
+  background-position-x: 51%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  
+}
+
+
+.containerContenidoHome {
+  flex-wrap: wrap;
+}
+
+.pokemonHome {
+  width: 600px;
+  writing-mode: horizontal-tb;
+  animation: brincar 1.8s ease-in-out infinite;
+}
+
+@keyframes brincar {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Imagen pikachu */
+.pikachuHome {
+  width: 350px;
+  margin: 0 auto;
+}
+.pikachuHome:hover {
+  transform: scale(1.1);
+}
+
+/*----------Responsive Design----------*/
+@media screen and (max-width: 800px) {
+  .pokemonHome {
+    width: 600px;
+  }
+  .pikachuHome {
+    width: 300px;
+  }
+  .containerHome {
+    background-size: 250% 100vh;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .pokemonHome {
+    width: 430px;
+  }
+  .pikachuHome {
+    width: 200px;
+  }
+  .containerHome {
+    background-repeat: inherit;
+    background-size: 250% 70vh;
+    background-position-y: 70%;
+    background-position-x: 51%;
+  }
+}
+
+/* .containerHome {
+
+  min-height: 100vh;
+  background-image: url(../../assets/mundo.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.containerContenidoHome { 
+  flex-wrap: wrap;
+}
+
+.pokemonHome {
+  width: 600px;
+  writing-mode: horizontal-tb;
+  animation: brincar 1.8s ease-in-out infinite;
+}
+@keyframes brincar {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.pikachuHome {
+  width: 250px;
+  margin: 0 auto;
+
+}
+.pikachuHome:hover {
+  transform: scale(1.1);
+}
+
+
+@media screen and (max-width: 750px) {
+    .pokemonHome{
+        width: 480px;
+    }
+    .pikachuHome {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .pokemonHome{
+        width: 360px;
+    }
+    .pikachuHome {
+        width: 150px;
+    }
+} */
