@@ -8,7 +8,7 @@ import songPokemon from "../../assets/pokemon-final-cut.mp3";
 function Home() {
   const audioRef = useRef(null);
   const navigate = useNavigate();
-  // Audios
+
   function handleSong() {
     audioRef.current.play();
   }

@@ -10,7 +10,6 @@ import {
   RESET_PAGE,
   GET_ONE_POKEMON_NAME,
   DELETE_POKEMON,
-  
 } from "../types/index";
 
 export const getPokemons = () => (dispatch) => {
@@ -47,6 +46,13 @@ export const getOnePokemonID = (id) => (dispatch) => {
         payload: err,
       });
     });
+};
+
+export const resetOnePokemonID = () => {
+  return {
+    type: GET_ONE_POKEMON,
+    payload: [],
+  };
 };
 
 export const getOnePokemonName = (name) => (dispatch) => {
@@ -109,6 +115,7 @@ export const currentPage = (currentPage) => {
 export const resetPage = () => {
   return {
     type: RESET_PAGE,
+
   };
 };
 
@@ -162,7 +169,6 @@ export const deletePokemon = (id) => (dispatch) => {
       });
     });
 };
-
 
 const callServer =
   (url, successType, options = null) =>

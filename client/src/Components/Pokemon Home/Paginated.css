@@ -1,0 +1,13 @@
+
+.button {
+    height: 30px;
+    width: 30px;
+    margin: 7px;
+    background-color: rgb(110, 150, 185);
+    color: rgb(0, 0, 0);
+    border: 2px solid black;
+  }
+  
+  .active {
+    background-color: rgb(79, 79, 131);
+  }

@@ -133,60 +133,64 @@
 
 const { Pokemon, Type } = require("../db");
 const axios = require("axios");
-// Recuperar data de la API mediante fetch
-let pokemonsURL = [];
 let pokemonsData = [];
-let fetchPokemonsDataCalled = false;
+let pokemonInfo = [];
+let load = false;
 
-const fetchPokemonsURL = async (offset = 0) => {
+const fetchPokemonsData = async () => {
   try {
-    const URL = "https://pokeapi.co/api/v2/pokemon";
-    let response = await axios.get(`${URL}?offset=${offset}&limit=500`, {
-      headers: { "Accept-Encoding": "gzip,deflate,compress" },
-    });
+    const promises = [];
+    for (let i = 0; i < 40; i += 20) {
+      promises.push(
+        await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/?offset=${i}&limit=20`,
+          {
+            headers: { "Accept-Encoding": "gzip,deflate,compress" },
+          }
+        )
+      );
+    }
 
-    const data = await response.data.results.map((response) => response.url);
-    pokemonsURL.push(...data);
+    const responses = await Promise.all(promises);
+    const data = await responses.flatMap((response) => response.data.results);
+    pokemonsData.push(...data);
   } catch (error) {
     throw new Error(error.message);
   }
 };
 
-const fetchPokemonsData = async () => {
-  
-  fetchPokemonsDataCalled = true;
+const fetchPokemonsInfo = async () => {
+  if (load === false) {
+    load = true;
+    try {
+      await fetchPokemonsData();
 
-  try {
-    await fetchPokemonsURL();
-    let responses = await Promise.all(
-      pokemonsURL.map(async (e) => {
-        // Manejar cada error de manera individual
-        try {
-          const response = await axios.get(e, {
-            headers: { "Accept-Encoding": "gzip,deflate,compress" },
-          });
+      const responses = await Promise.all(
+        pokemonsData.map(async (pokemon) => {
+          try {
+            let response = await axios.get(pokemon.url, {
+              headers: { "Accept-Encoding": "gzip,deflate,compress" },
+            });
+            return response.data;
+          } catch (error) {
+            return null;
+          }
+        })
+      );
 
-          return response.data;
-        } catch (error) {
-          return null;
-        }
-      })
-    );
-
-    let data = await responses.filter((response) => response !== null);
-    pokemonsData.push(...data);
-    console.log("termineee")
-  } catch (error) {
-    throw new Error(error.message);
+      const data = await responses.filter((response) => response !== null);
+      console.log(data);
+      await pokemonInfo.push(...data);
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
 };
 
 const apiData = async () => {
   try {
-    if (fetchPokemonsDataCalled === false) {
-      await fetchPokemonsData();
-    }
-    return pokemonsData.map((e) => {
+    await fetchPokemonsInfo();
+    return pokemonInfo.map((e) => {
       return {
         id: e.id,
         name: e.forms[0].name,

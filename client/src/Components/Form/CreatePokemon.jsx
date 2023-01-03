@@ -46,9 +46,9 @@ const validationsForm = (form, pokemons) => {
     errors.life = "El campo Pokemon life, es requerido";
   } else if (!regexNumber.test(form.life)) {
     errors.life = "Pokemon life, solo puede contener numeros Enteros";
-  } else if (parseInt(form.life) === 0 || parseInt(form.life) > 999) {
+  } else if (parseInt(form.life) === 0 || parseInt(form.life) > 200) {
     errors.life =
-      "Pokemon life, solo puede contener numeros Enteros entre 1 y 999";
+      "Pokemon life, solo puede contener numeros Enteros entre 1 y 200";
   }
 
   // attack
@@ -56,9 +56,9 @@ const validationsForm = (form, pokemons) => {
     errors.attack = "El campo Pokemon attack power, es requerido";
   } else if (!regexNumber.test(form.attack)) {
     errors.attack = "Pokemon attack power, solo puede contener numeros Enteros";
-  } else if (parseInt(form.attack) === 0 || parseInt(form.attack) > 999) {
+  } else if (parseInt(form.attack) === 0 || parseInt(form.attack) > 200) {
     errors.attack =
-      "Pokemon attack power, solo puede contener numeros Enteros entre 1 y 999";
+      "Pokemon attack power, solo puede contener numeros Enteros entre 1 y 200";
   }
 
   // defense
@@ -67,9 +67,9 @@ const validationsForm = (form, pokemons) => {
   } else if (!regexNumber.test(form.defense)) {
     errors.defense =
       "Pokemon defense level, solo puede contener numeros Enteros";
-  } else if (parseInt(form.defense) === 0 || parseInt(form.defense) > 999) {
+  } else if (parseInt(form.defense) === 0 || parseInt(form.defense) > 200) {
     errors.defense =
-      "Pokemon defense level, solo puede contener numeros Enteros entre 1 y 999";
+      "Pokemon defense level, solo puede contener numeros Enteros entre 1 y 200";
   }
 
   // speed
@@ -77,9 +77,9 @@ const validationsForm = (form, pokemons) => {
     errors.speed = "El campo Pokemon speed level, es requerido";
   } else if (!regexNumber.test(form.speed)) {
     errors.speed = "Pokemon speed level, solo puede contener numeros Enteros";
-  } else if (parseInt(form.speed) === 0 || parseInt(form.speed) > 999) {
+  } else if (parseInt(form.speed) === 0 || parseInt(form.speed) > 200) {
     errors.speed =
-      "Pokemon speed level, solo puede contener numeros Enteros entre 1 y 999";
+      "Pokemon speed level, solo puede contener numeros Enteros entre 1 y 200";
   }
 
   // height
@@ -87,9 +87,9 @@ const validationsForm = (form, pokemons) => {
     errors.height = "El campo Pokemon height, es requerido";
   } else if (!regexNumber.test(form.height)) {
     errors.height = "Pokemon height, solo puede contener numeros Enteros";
-  } else if (parseInt(form.height) === 0 || parseInt(form.height) > 999) {
+  } else if (parseInt(form.height) === 0 || parseInt(form.height) > 200) {
     errors.height =
-      "Pokemon height, solo puede contener numeros Enteros entre 1 y 999";
+      "Pokemon height, solo puede contener numeros Enteros entre 1 y 200";
   }
 
   // weight
@@ -97,9 +97,9 @@ const validationsForm = (form, pokemons) => {
     errors.weight = "El campo Pokemon weight, es requerido";
   } else if (!regexNumber.test(form.weight)) {
     errors.weight = "Pokemon weight, solo puede contener numeros Enteros";
-  } else if (parseInt(form.weight) === 0 || parseInt(form.weight) > 999) {
+  } else if (parseInt(form.weight) === 0 || parseInt(form.weight) > 200) {
     errors.weight =
-      "Pokemon weight, solo puede contener numeros Enteros entre 1 y 999";
+      "Pokemon weight, solo puede contener numeros Enteros entre 1 y 200";
   }
 
   // image
@@ -143,10 +143,10 @@ function CreatePokemon() {
 
   return (
     <div className="container">
-      <div className="navBarCreate">
-        <NavBar/>
+      <div className="navBar-create">
+        <NavBar />
       </div>
-      
+
       <div className="form-container">
         <form className="create-pokemon__form" onSubmit={handleSubmit}>
           <button

@@ -1,22 +1,44 @@
 .NavBar {
-  width: 90%;
+  width: 100%;
   margin: auto;
   padding: 35px 0;
   display: flex;
+  justify-content: space-between;
   list-style: none;
   border: 2px solid yellow;
-  justify-content: flex-end;
+  background: rgba(38, 70, 83,.6);
 }
 
-.NavBar ul li {
-    font-size: 30px;
-    color: black;
-  border: 2px solid red;
+.NavBar ul button {
+  font-size: 35px;
+  color: black;
   display: inline-block;
   margin: 0 20px;
 }
 
+.NavBar ul li{
+  list-style: none;
+}
+
 .NavBar img {
-  border: 2px solid red;
-  width: 40px;
+  margin-left: 40px;
+  /* border: 2px solid red; */
+  width: 50px;
+}
+
+.botonNavBar {
+  width: 160px;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #dee2e6;
+  transition: 300ms;
+}
+
+.botonNavBar:hover {
+  background: #0582ca;
+  color: white;
 }

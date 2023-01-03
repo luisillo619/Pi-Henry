@@ -1,25 +1,30 @@
 .containerPokemonsHome {
-    border: 10px solid green;
+  border: 2px solid rgb(51, 144, 167);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 5%;
+  box-shadow: 0 0 50px 0 #c9eafe;
+  height: 100%;
+  margin: 40px;
+}
+.imagenNoCarga {
+  border: 10px solid blue;
+}
+
+@media screen and (max-width: 1100px) {
+  .containerPokemonsHome {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-
-@media screen and (max-width: 1085px) {
-    .containerPokemonsHome {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
+@media screen and (max-width: 750px) {
+  .containerPokemonsHome {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
-
-
-@media screen and (max-width: 800px) {
-    .containerPokemonsHome {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-}
-

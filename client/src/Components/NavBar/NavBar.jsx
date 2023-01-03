@@ -5,53 +5,55 @@ import logo from "../../assets/R.png";
 function NavBar() {
   const location = useLocation().pathname;
 
-  //usar mejor el estilo que es como un objeto
+  //Pasar esto a navigate
   const pokemon = () => {
     return (
-      <div className="NavBar">
+      <header className="NavBar">
         <img src={logo} alt="" />
         <ul>
           <Link to="/">
-            <li>Home</li>
+           <button className="botonNavBar"><li>Home</li></button> 
           </Link>
           <Link to="/create">
-            <li>Create</li>
+           <button className="botonNavBar"> <li>Create</li></button>
           </Link>
         </ul>
-      </div>
+      </header>
     );
   };
 
   const create = () => {
     return (
-      <div className="NavBar">
+      <header className="NavBar">
+        <img src={logo} alt="" />
         <ul>
           <Link to="/" style={{ textDecoration: "none" }}>
-            <li>Home</li>
+          <button className="botonNavBar"><li>Home</li></button> 
           </Link>
           <Link to="/pokemon" style={{ textDecoration: "none" }}>
-            <li>Pokemon</li>
+          <button className="botonNavBar"><li>Pokemon</li></button> 
           </Link>
         </ul>
-      </div>
+      </header>
     );
   };
 
   const all = () => {
     return (
-      <div className="NavBar">
+      <header className="NavBar">
+        <img src={logo} alt="" />
         <ul>
           <Link to="/" style={{ textDecoration: "none" }}>
-            <li>Home</li>
+          <button className="botonNavBar"><li>Home</li></button> 
           </Link>
           <Link to="/pokemon" style={{ textDecoration: "none" }}>
-            <li>Pokemon</li>
+          <button className="botonNavBar"><li>Pokemon</li></button> 
           </Link>
-          <Link to="/create" style={{ textDecoration: "none" }}>
-            <li> Create</li>
+          <Link to="/create">
+          <button className="botonNavBar"> <li>Create</li></button>
           </Link>
         </ul>
-      </div>
+      </header>
     );
   };
   return (

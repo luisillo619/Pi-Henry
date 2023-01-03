@@ -10,6 +10,7 @@ import {
 } from "../../helpers/filterFunctions";
 import Pokemon from "./Pokemon";
 import "./PokemonsHome.css";
+import NoCarga from "../../assets/no carga.jpg"
 function Pokemon_Home() {
   const dispatch = useDispatch();
   let pokemons = useSelector((state) => state.pokemons);
@@ -17,7 +18,7 @@ function Pokemon_Home() {
   const currentPage = useSelector((state) => state.currentPage);
   const POKEMONS_PER_PAGE = 12;
   let pages = null;
-
+  
   if (filters.pokemonsFrom)
     pokemons = pokemonsFrom(filters.pokemonsFrom, pokemons);
 
@@ -46,10 +47,10 @@ function Pokemon_Home() {
   // si no hay concidencias, agregar la foto de pikachu triste
   return (
     <div className="containerPokemonsHome">
-    {displayPokemons.map(e=>{
+    {displayPokemons.length !== 0 && displayPokemons.map(e=>{
    return <Pokemon key={e.id} pokemonId={e.id} pokemonName={e.name} pokemonTypes={e.types} pokemonImage={e.image} />
     })}
-     
+     {displayPokemons.length === 0 && <img className="imagenNoCarga"src={NoCarga}></img>}
     </div>
    
   );
