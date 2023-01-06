@@ -132,8 +132,6 @@ function useForm(initialForm, validateForm) {
   return {
     form,
     errors,
-    loading,
-    response,
     handleBlur,
     handleChange,
     handleSubmit,

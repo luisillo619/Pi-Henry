@@ -31,7 +31,7 @@ function PokemonsHome() {
 
   if (filters.pokemonNames)
     pokemons = pokemonNames(filters.pokemonNames, pokemons);
-  console.log(pokemons)
+
   pages = Math.ceil(pokemons.length / POKEMONS_PER_PAGE)
 
   useEffect(() => {

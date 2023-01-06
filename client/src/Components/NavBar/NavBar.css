@@ -11,7 +11,7 @@ nav .mainMenu {
   display: flex;
   list-style: none;
 }
-nav .mainMenu li a {
+nav .mainMenu li p {
   display: inline-block;
   padding: 15px;
   text-decoration: none;
@@ -21,7 +21,7 @@ nav .mainMenu li a {
   height: 100%;
   transition: 0.2s ease;
 }
-nav .mainMenu li a:hover {
+nav .mainMenu li p:hover {
   background: #ffc300;
   
 }
@@ -36,4 +36,5 @@ nav .logo {
 nav .logo:hover {
  transform: rotate(360deg) scale(1.1);
 }
+
 

@@ -144,8 +144,6 @@ function CreatePokemon() {
   const {
     form,
     errors,
-    loading,
-    response,
     handleBlur,
     handleChange,
     handleSubmit,
@@ -421,8 +419,6 @@ function CreatePokemon() {
           </div>
         </form>
       </div>
-
-      {/* {img && <img id="img" src={form.image} alt="User-provided image" />} */}
     </div>
     </div>
    

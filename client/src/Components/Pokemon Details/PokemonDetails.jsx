@@ -10,7 +10,6 @@ import { useRef } from "react";
 function MyCanvas() {
   const canvasRef = useRef(null);
   const onePokemon = useSelector((state) => state.onePokemon);
-  console.log(onePokemon.life);
   useEffect(() => {
     // Lógica para crear la gráfica
 
@@ -19,8 +18,8 @@ function MyCanvas() {
     const data = [onePokemon.life, onePokemon.attack, onePokemon.defense];
     const maxValue = 250;
     
-    const barWidth = 130 / data.length;
-    const barSpacing = 70; // Deja 10 pixels de espacio entre barras
+    const barWidth = 150 / data.length;
+    const barSpacing = 75; // Deja 10 pixels de espacio entre barras
     const colors = ["#14cc60", "#db4c40", "#7678ed"];
 
     // Calcula el alto máximo de las barras en función del alto del canvas y el valor máximo
@@ -42,8 +41,9 @@ function MyCanvas() {
 
   return (
     <div className="pokemon-stats-info">
-      <div className="canvas">
-        <canvas ref={canvasRef} />
+      <div className="canvas-container">
+        <canvas ref={canvasRef} ></canvas>
+       
       </div>
       <div className="stats">
         <p>PS: {onePokemon.life}</p>
