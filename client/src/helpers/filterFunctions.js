@@ -51,6 +51,7 @@ export const pokemonsSorted = (filter, pokemons) => {
 };
 
 export const pokemonsTypes = (filter, pokemons) => {
+  
   const pokemonType = pokemons.filter((e) => e.types.includes(filter));
   return pokemonType;
 };

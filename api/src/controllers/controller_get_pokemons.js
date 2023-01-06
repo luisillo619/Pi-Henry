@@ -141,7 +141,7 @@ let load = false;
 const fetchPokemonsURL = async () => {
   try {
     const promises = [];
-    for (let i = 0; i < 150; i += 20) {
+    for (let i = 0; i < 600; i += 20) {
       console.log(i)
       promises.push(
         await fetch(

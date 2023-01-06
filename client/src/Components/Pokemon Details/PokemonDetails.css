@@ -7,7 +7,7 @@
 .container-PokemonDetails {
   padding: 5px 10%;
   min-height: 100vh;
-  background-image: url(../../../src/assets/thumbnail-white.webp);
+  background: #EAEAEA;
 }
 
 .name-pokemon-details {
@@ -43,7 +43,7 @@
 .container-image-and-card-details {
   padding: 20px;
   margin: 0 auto;
-  border: 1px solid chocolate;
+  /* border: 1px solid chocolate; */
   grid-column: 1/2;
 }
 
@@ -102,7 +102,7 @@
   height: 30%;
   margin: 0 auto;
   width: 90%;
-   border: 1px solid red;
+   /* border: 1px solid red; */
    /* overflow: hidden; */
   /* margin-top: 20px;  */
 }
@@ -114,7 +114,7 @@
 
 .stats{
   width: 100%;
-  border: 3px solid yellow;
+  /* border: 3px solid yellow; */
   display: flex;
   justify-content: space-between;
 }

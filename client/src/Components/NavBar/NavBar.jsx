@@ -36,11 +36,11 @@ function NavBar() {
     return (
       <header>
         <nav>
-            <div className="logo"><img src={logo} alt="Logo"/></div>
+        <div className="logo"><Link to="/"><img src={logo} alt="Logo"/></Link></div>
             <ul className="mainMenu">
-            <li> <Link to="/"><p value="Home"href="#">Home</p> </Link></li>
+   
                
-               <li><Link to="/pokemon"><p href="#">Pokemon</p></Link></li>
+            <li><Link to="/pokemon"><p href="#">Pokemon</p></Link></li>
                <li><Link to="/create"><p href="#">Create</p></Link></li>
              
             </ul>

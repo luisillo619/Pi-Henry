@@ -27,7 +27,7 @@ function Home() {
           alt="Imagen Pokemon"
           onClick={handleSong}
         />
-        <img className="pikachuHome" src={Pikachu} alt="Imagen Pokemon" />
+        <img className="pikachuHome" src={Pikachu} alt="Imagen Pokemon" onClick={handleSong}/>
       </div>
     </div>
   );
