@@ -1,8 +1,4 @@
 const { Router } = require("express");
-const { apiData, typesApi } = require("../controllers/controller_get_pokemons");
-const { pokemon_types_DB } = require("../controllers/controller_get_types");
-const { findByName } = require("../controllers/controller_get_types");
-const {deleteById} = require("../controllers/controller_delete_pokemons")
 
 const router_pokemons = require("./route_get_pokemons");
 const router_types = require("./route_get_types");

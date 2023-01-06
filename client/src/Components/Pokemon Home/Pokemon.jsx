@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { colorTypes } from "../../helpers/colorTypesFunction";
 function Pokemon({ pokemonId, pokemonName, pokemonTypes, pokemonImage }) {
   const dispatch = useDispatch();
-
+  
   const handleClick = (e) => {
     dispatch(deletePokemon(e.target.id));
     window.location.reload();
@@ -38,7 +38,7 @@ function Pokemon({ pokemonId, pokemonName, pokemonTypes, pokemonImage }) {
        <div className="pokemon-Types">
        {pokemonTypes.map((e) => {
         let color = colorTypes(e);
-          return <p  style={{ background: color }} key={e}>{e}</p>;
+          return <p style={{ background: color }} key={e}>{e}</p>;
         })}
        </div>
        

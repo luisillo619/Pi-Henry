@@ -8,12 +8,12 @@ import NavBar from "../NavBar/NavBar";
 
 
 function Index_Home() {
+ 
   return (
     <div className="containerIndexHome">
       <div className="navBar-Pokemon">
       <NavBar />
       </div>
-     
       <Filters />
       <Paginated />
       <PokemonsHome />

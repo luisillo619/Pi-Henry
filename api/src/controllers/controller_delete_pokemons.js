@@ -1,5 +1,6 @@
 const { Pokemon } = require("../db");
 
+// Controlador para eliminar pokemon por ID, se verifica que el id sea un UUID
 const deleteById = (id) => {
   if (
     !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(

@@ -1,61 +1,55 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import logo from "../../assets/R.png";
 function NavBar() {
   const location = useLocation().pathname;
 
-  //Pasar esto a navigate
   const pokemon = () => {
     return (
-      <header className="NavBar">
-        <img src={logo} alt="" />
-        <ul>
-          <Link to="/">
-           <button className="botonNavBar"><li>Home</li></button> 
-          </Link>
-          <Link to="/create">
-           <button className="botonNavBar"> <li>Create</li></button>
-          </Link>
-        </ul>
+      <header>
+        <nav>
+            <div className="logo"><Link to="/home"><img src={logo} alt="Logo"/></Link></div>
+            <ul className="mainMenu">
+                <li><Link to="/create"><p href="#">Create</p></Link></li>
+            </ul>
+        </nav>
       </header>
     );
   };
 
   const create = () => {
     return (
-      <header className="NavBar">
-        <img src={logo} alt="" />
-        <ul>
-          <Link to="/" style={{ textDecoration: "none" }}>
-          <button className="botonNavBar"><li>Home</li></button> 
-          </Link>
-          <Link to="/pokemon" style={{ textDecoration: "none" }}>
-          <button className="botonNavBar"><li>Pokemon</li></button> 
-          </Link>
-        </ul>
+      <header>
+        <nav>
+        <div className="logo"><Link to="/home"><img src={logo} alt="Logo"/></Link></div>
+            <ul className="mainMenu">
+              <li><Link to="/pokemon"><p href="#">Pokemon</p></Link></li>
+            </ul>
+        </nav>
+       
       </header>
     );
   };
 
   const all = () => {
     return (
-      <header className="NavBar">
-        <img src={logo} alt="" />
-        <ul>
-          <Link to="/" style={{ textDecoration: "none" }}>
-          <button className="botonNavBar"><li>Home</li></button> 
-          </Link>
-          <Link to="/pokemon" style={{ textDecoration: "none" }}>
-          <button className="botonNavBar"><li>Pokemon</li></button> 
-          </Link>
-          <Link to="/create">
-          <button className="botonNavBar"> <li>Create</li></button>
-          </Link>
-        </ul>
+      <header>
+        <nav>
+            <div className="logo"><img src={logo} alt="Logo"/></div>
+            <ul className="mainMenu">
+            <li> <Link to="/"><p value="Home"href="#">Home</p> </Link></li>
+               
+               <li><Link to="/pokemon"><p href="#">Pokemon</p></Link></li>
+               <li><Link to="/create"><p href="#">Create</p></Link></li>
+             
+            </ul>
+        </nav>
       </header>
     );
   };
+
+
   return (
     <>
       {location === "/pokemon" ? pokemon() : null}
@@ -65,6 +59,7 @@ function NavBar() {
         : null}
     </>
   );
-}
+};
+
 
 export default NavBar;

@@ -1,13 +1,53 @@
-
 .button {
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    font-size: 20px;
+    background: #30A7D7;/*#657fc1*/
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+  
+.active {
+  background: #1B53BA;/*177ea7*/
+  }
+
+.containerBoronesPaginado {
+  border: 1px solid red;
+  display: inline-block;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.containerNextPrev {
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.botonPrev, .botonNext {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  height: 30px;
+  width: 60px;
+  background: #e83626;/*6a4c93*/
+  border: none;
+  border-radius: 3px;
+}
+
+.containerNumberPages {
+  border: 3px solid rgb(7, 3, 252);
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 333px) {
+  .button {
     height: 30px;
     width: 30px;
-    margin: 7px;
-    background-color: rgb(110, 150, 185);
-    color: rgb(0, 0, 0);
-    border: 2px solid black;
+    margin: 5px;
+    font-size: 16px;
   }
-  
-  .active {
-    background-color: rgb(79, 79, 131);
-  }
+}

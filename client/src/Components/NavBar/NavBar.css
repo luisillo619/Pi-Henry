@@ -1,44 +1,39 @@
-.NavBar {
-  width: 100%;
-  margin: auto;
-  padding: 35px 0;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-  border: 2px solid yellow;
-  background: rgba(38, 70, 83,.6);
-}
-
-.NavBar ul button {
-  font-size: 35px;
-  color: black;
-  display: inline-block;
-  margin: 0 20px;
-}
-
-.NavBar ul li{
-  list-style: none;
-}
-
-.NavBar img {
-  margin-left: 40px;
-  /* border: 2px solid red; */
-  width: 50px;
-}
-
-.botonNavBar {
-  width: 160px;
-  height: 60px;
-  border: none;
+nav {
+  background: #eb2f32a8;
+  color: rgb(255, 255, 255);
   border-radius: 5px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: #dee2e6;
-  transition: 300ms;
+  justify-content: space-between;
+}
+nav .mainMenu {
+  margin: 0 20px 0 0;
+  display: flex;
+  list-style: none;
+}
+nav .mainMenu li a {
+  display: inline-block;
+  padding: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  height: 100%;
+  transition: 0.2s ease;
+}
+nav .mainMenu li a:hover {
+  background: #ffc300;
+  
 }
 
-.botonNavBar:hover {
-  background: #0582ca;
-  color: white;
+nav .logo {
+  width: 50px;
+  margin: 10px 10px 10px 20px;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
+
+nav .logo:hover {
+ transform: rotate(360deg) scale(1.1);
+}
+

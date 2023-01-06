@@ -6,7 +6,7 @@ const {
 const express = require("express");
 const pokemonRoute = express.Router();
 
-// All types and query types
+// Ruta para obtener un Tipo de pokemon por Nombre o todos los Tipos
 pokemonRoute.get("/", async (req, res) => {
   try {
     const { name } = req.query;
@@ -16,7 +16,6 @@ pokemonRoute.get("/", async (req, res) => {
         ? res.status(404).json(findPokemon)
         : res.status(200).json(findPokemon);
     } else {
-     
       let allPokemons = await pokemon_types_DB();
       res.status(200).json(allPokemons);
     }
@@ -25,7 +24,7 @@ pokemonRoute.get("/", async (req, res) => {
   }
 });
 
-// Params types
+// Ruta para obtener Tipo de pokemon por ID
 pokemonRoute.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;

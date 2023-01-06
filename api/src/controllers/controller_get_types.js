@@ -1,17 +1,16 @@
 const { Type } = require("../db");
 
-// Guarda los types de la API en la DB
 let save = false;
 
+// Peticion a la API para obtener los TIPOS de Pokemon
 const save_pokemon_types = () => {
   const URL = "https://pokeapi.co/api/v2/type";
 
   return fetch(URL)
     .then((e) => e.json())
     .then((request) => {
-     
       const types = [...new Set(request.results.map((e) => e.name))];
-      
+
       return Promise.all(
         types.map((name) =>
           Type.findOne({ where: { name } }).then((type) => {
@@ -26,10 +25,10 @@ const save_pokemon_types = () => {
     });
 };
 
-// Recupera los types de la DB
+// Pide la data del modelo Types a la base de datos
 const pokemon_types_DB = async () => {
   try {
-    await save_pokemon_types()
+    await save_pokemon_types();
     let data = await Type.findAll();
     let dataJson = await data.map((e) => e.toJSON());
     return dataJson;
@@ -38,7 +37,7 @@ const pokemon_types_DB = async () => {
   }
 };
 
-// Type por nombre
+// Busca un Tipo de pokemon por su Nombre
 const findByName = async (name) => {
   try {
     const allTypeData = await pokemon_types_DB();
@@ -52,7 +51,7 @@ const findByName = async (name) => {
   }
 };
 
-// Type por id
+// Busca un Tipo de pokemon por su ID
 const findById = async (id) => {
   try {
     const allTypeData = await pokemon_types_DB();

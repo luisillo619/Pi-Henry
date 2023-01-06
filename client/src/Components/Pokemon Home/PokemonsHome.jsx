@@ -10,10 +10,11 @@ import {
 } from "../../helpers/filterFunctions";
 import Pokemon from "./Pokemon";
 import "./PokemonsHome.css";
-import NoCarga from "../../assets/no carga.jpg"
-function Pokemon_Home() {
+
+
+function PokemonsHome() {
   const dispatch = useDispatch();
-  let pokemons = useSelector((state) => state.pokemons);
+  let pokemons = useSelector((state) =>state.pokemons)
   const filters = useSelector((state) => state.filters);
   const currentPage = useSelector((state) => state.currentPage);
   const POKEMONS_PER_PAGE = 12;
@@ -50,10 +51,10 @@ function Pokemon_Home() {
     {displayPokemons.length !== 0 && displayPokemons.map(e=>{
    return <Pokemon key={e.id} pokemonId={e.id} pokemonName={e.name} pokemonTypes={e.types} pokemonImage={e.image} />
     })}
-     {displayPokemons.length === 0 && <img className="imagenNoCarga"src={NoCarga}></img>}
+     {displayPokemons.length === 0 && <p>Not found</p>}
     </div>
    
   );
 }
 
-export default Pokemon_Home;
+export default PokemonsHome;

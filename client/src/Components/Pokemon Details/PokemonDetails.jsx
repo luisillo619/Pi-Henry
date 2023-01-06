@@ -18,8 +18,9 @@ function MyCanvas() {
     const ctx = canvas.getContext("2d");
     const data = [onePokemon.life, onePokemon.attack, onePokemon.defense];
     const maxValue = 250;
+    
     const barWidth = 130 / data.length;
-    const barSpacing = 75; // Deja 10 pixels de espacio entre barras
+    const barSpacing = 70; // Deja 10 pixels de espacio entre barras
     const colors = ["#14cc60", "#db4c40", "#7678ed"];
 
     // Calcula el alto máximo de las barras en función del alto del canvas y el valor máximo
@@ -41,8 +42,8 @@ function MyCanvas() {
 
   return (
     <div className="pokemon-stats-info">
-      <div  className="canvas">
-        <canvas ref={canvasRef}/>
+      <div className="canvas">
+        <canvas ref={canvasRef} />
       </div>
       <div className="stats">
         <p>PS: {onePokemon.life}</p>
@@ -106,7 +107,6 @@ function Deteils({ onePokemon }) {
                       style={{ background: color }}
                       key={e}
                     >
-                       
                       {e}
                     </p>
                   );
@@ -145,4 +145,4 @@ function PokemonDetails() {
   );
 }
 
-export default PokemonDetails;
+export default PokemonDetails

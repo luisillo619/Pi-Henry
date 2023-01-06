@@ -3,21 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFilter, resetPage } from "../redux/actions/index";
 import { currentPage } from "../redux/actions/index";
 
+// hook personalizado ayuda a mandar los filtros a redux
 function useFilter(filterValidations, initialState) {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.filters);
   const [state, setState] = useState(filters);
-  const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState(null);
 
   const pokemons = useSelector((state) => state.pokemons);
   const types = useSelector((state)=>state.types)
 
   useEffect(() => {
-    filterValidations(state, dispatch, addFilter,currentPage);
+    filterValidations(state, dispatch, addFilter);
   }, [state]);
 
 
+  // las props vienen de el html de filter.jsx, Sirve para mostrar las sugerencias al momento de estar buscando al Pokemon por nombre
   function nameOptions(pokemons, pokemonName) {
     const filteredPokemons = pokemons.filter((pokemon) =>
       pokemon.name.toLowerCase().includes(pokemonName.toLowerCase())
@@ -25,6 +25,7 @@ function useFilter(filterValidations, initialState) {
     return filteredPokemons.map((e) => <option key={e.name} value={e.name} />);
   }
 
+  // setea cada cambio del html al estado 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setState({
@@ -33,6 +34,7 @@ function useFilter(filterValidations, initialState) {
     });
   };
 
+  // handle que maneja al boton Reiniciar
   const handleClick = () => {
     setState(initialState);
     dispatch(resetPage());
@@ -40,8 +42,6 @@ function useFilter(filterValidations, initialState) {
 
   return {
     state,
-    loading,
-    response,
     handleChange,
     pokemons,
     nameOptions,

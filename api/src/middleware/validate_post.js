@@ -1,5 +1,6 @@
 const { validate_type } = require("../helpers/validate_type");
 
+// Valida que lleguen todos los datos necesarios en la ruta POST
 const validate_POST = async (req) => {
   try {
     const { name, life, attack, defense, speed, height, weight, image, types } =

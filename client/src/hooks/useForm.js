@@ -6,6 +6,7 @@ import { postPokemon } from "../redux/actions";
 import { useDispatch } from "react-redux";
 import { adaptObject } from "../helpers/adaptObjectFunction";
 import { optionsType } from "../helpers/options";
+import { colorTypes } from "../helpers/colorTypesFunction";
 
 function useForm(initialForm, validateForm) {
   const dispatch = useDispatch();
@@ -37,11 +38,13 @@ function useForm(initialForm, validateForm) {
 
   const selectedTypes = () => {
     return form.types.map((e) => {
+      let color = colorTypes(e);
       const id = generateUUID();
       return (
         <input
         className="create-pokemon-selected"
           onClick={isTypeSelectedByClick}
+          style={{background: color}}
           id={id}
           key={id}
           type="button"

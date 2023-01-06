@@ -53,24 +53,29 @@ function Paginated() {
       }
       const buttonClass = e === currentPage ? "button active" : "button";
       return (
-        <button
-          key={e}
-          id={e}
-          className={buttonClass}
-          onClick={() => dispatch(setCurrentPage(e))}
-        >
-          {e}
-        </button>
+        <div className='containerBoronesPaginado' key={e}>
+            <button
+              key={e}
+              id={e}
+              className={buttonClass}
+              onClick={() => dispatch(setCurrentPage(e))}
+            >
+              {e}
+            </button>
+        </div>
       );
     });
 
   return (
-    <div>
-      {/* Mostrar botón Anterior si no estamos en la primera página */}
-      {rangeStart > 1 && <button onClick={handlePrev}>Anterior</button>}
-      {buttons}
-      {/* Mostrar botón Siguiente si no estamos en la última página */}
-      {rangeEnd < totalPages && <button onClick={handleNext}>Siguiente</button>}
+    <div >
+      <div className='containerNextPrev'>
+        {/* Mostrar botón Anterior si no estamos en la primera página */}
+        {rangeStart > 1 && <button className='botonPrev' onClick={handlePrev}>PREV</button>}
+        {/* Mostrar botón Siguiente si no estamos en la última página */}
+        {rangeEnd < totalPages && <button className='botonNext' onClick={handleNext}>NEXT</button>}
+      </div>
+
+      <div className='containerNumberPages'>{buttons}</div>
     </div>
   );
 };

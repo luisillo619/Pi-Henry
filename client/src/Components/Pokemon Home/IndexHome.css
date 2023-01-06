@@ -5,10 +5,11 @@
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url(../../../src/assets/217166.jpg);
-  background-position: center;
+  /* background-image: url(../../../src/assets/5f49e8620a76d4c129a39fc39c3570d1.jpg); */
+  /* background-position: center;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: cover; */
+ background: rgb(234, 234, 234);
 }
 
 .red {
@@ -16,6 +17,5 @@
 }
 
 .navBar-Pokemon{
-  width: 100%;
-  border: 2px solid red;
+  width: 90%;
 }

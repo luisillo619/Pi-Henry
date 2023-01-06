@@ -7,14 +7,13 @@ module.exports = (sequelize) => {
     "pokemon",
     {
       id: {
-        // se tiene que hacer porque la api en dogs no esta dentro de la db y id no puede reconocer la secuencia
+     // SE HACE ASI PORQUE LA LA DATA DE LA API NO ESTA DENTRO DE LA BASE DE DATOS Y POR LO TANTO NO HAY UNA RELACION SECUENCIAL EN SUS ID
         primaryKey: true,
         //genera ids aleatorias strings
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
       name: {
-        //restriccion para que el nombre no sea igual alguno a la db
         type: DataTypes.STRING,
         allowNull: false, //name no puede ser nulo
         unique: true,

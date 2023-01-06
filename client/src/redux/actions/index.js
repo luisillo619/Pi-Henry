@@ -65,7 +65,7 @@ export const getOnePokemonName = (name) => (dispatch) => {
       })
     )
     .catch((err) => {
-      console.log(err);
+      
       dispatch({
         type: SERVER_ERROR,
         payload: err,

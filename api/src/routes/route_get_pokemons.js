@@ -3,12 +3,11 @@ const {
   findByName,
   fullData,
   findById,
-  apiData,
 } = require("../controllers/controller_get_pokemons");
 const pokemonRoute = express.Router();
 
 
-// All pokemons and query pokemons
+// Ruta para obtener un Pokemon por Nombre o todos los Pokemons
 pokemonRoute.get("/", async (req, res) => {
   try {
     const { name } = req.query;
@@ -19,14 +18,18 @@ pokemonRoute.get("/", async (req, res) => {
         : res.status(200).json(findPokemon);
     } else {
       const allPokemons = await fullData();
+    if(allPokemons.length !== 0){
+      console.log(allPokemons)
       res.status(200).json(allPokemons);
+    }
+    
     }
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
 });
 
-// Params Pokemons
+// Ruta para obtener Pokemon por ID
 pokemonRoute.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;

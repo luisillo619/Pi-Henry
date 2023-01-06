@@ -133,53 +133,60 @@
 
 const { Pokemon, Type } = require("../db");
 const axios = require("axios");
-let pokemonsData = [];
+let pokemonsURL = [];
 let pokemonInfo = [];
 let load = false;
 
-const fetchPokemonsData = async () => {
+// Peticion a la API para obtener la URL de cada Pokemon 
+const fetchPokemonsURL = async () => {
   try {
     const promises = [];
-    for (let i = 0; i < 40; i += 20) {
+    for (let i = 0; i < 150; i += 20) {
+      console.log(i)
       promises.push(
-        await axios.get(
+        await fetch(
           `https://pokeapi.co/api/v2/pokemon/?offset=${i}&limit=20`,
-          {
-            headers: { "Accept-Encoding": "gzip,deflate,compress" },
-          }
-        )
+          // {
+          //   headers: { "Accept-Encoding": "gzip,deflate,compress" },
+          // }
+        ).then((data) => data.json())
       );
     }
-
-    const responses = await Promise.all(promises);
-    const data = await responses.flatMap((response) => response.data.results);
-    pokemonsData.push(...data);
+    const data = await promises.flatMap((response) => response.results);
+    pokemonsURL.push(...data);
   } catch (error) {
     throw new Error(error.message);
   }
 };
 
+// En base a la URL de cada pokemon, se hace otra peticion para obtener TODA la data de cada pokemon
 const fetchPokemonsInfo = async () => {
+  
   if (load === false) {
     load = true;
     try {
-      await fetchPokemonsData();
-
+      await fetchPokemonsURL();
+      
+      async function getPokemonData(pokemon) {
+        try {
+          let response = await fetch(pokemon.url).then((data) => data.json());
+          console.log(response)
+          return response;
+        } catch (error) {
+          return null;
+        }
+      }
       const responses = await Promise.all(
-        pokemonsData.map(async (pokemon) => {
-          try {
-            let response = await axios.get(pokemon.url, {
-              headers: { "Accept-Encoding": "gzip,deflate,compress" },
-            });
-            return response.data;
-          } catch (error) {
-            return null;
-          }
-        })
+        pokemonsURL.map(async (pokemon) => await getPokemonData(pokemon))
       );
 
-      const data = await responses.filter((response) => response !== null);
-      console.log(data);
+      const data = responses.reduce((acc, response) => {
+        if (response !== null) {
+          acc.push(response);
+        }
+        return acc;
+      }, []);
+
       await pokemonInfo.push(...data);
     } catch (error) {
       throw new Error(error.message);
@@ -187,6 +194,7 @@ const fetchPokemonsInfo = async () => {
   }
 };
 
+// funcion que ingresa unicamente a las propiedades que necesito del Pokemon
 const apiData = async () => {
   try {
     await fetchPokemonsInfo();
@@ -209,9 +217,9 @@ const apiData = async () => {
   }
 };
 
+// Pide la data del modelo Pokemon y del modelo Types y los junta en un solo array
 const dbData = async () => {
   try {
-    // Joinea la tabla Type a la tabla Pokemon
     // Devuelve un array de objetos
     let data = await Pokemon.findAll({
       include: {
@@ -243,7 +251,7 @@ const dbData = async () => {
   }
 };
 
-// dbData + apiData
+// Junta la data recuperada por la API y la data de la base de datos
 const fullData = async () => {
   try {
     const fromApi = await apiData();
@@ -254,7 +262,7 @@ const fullData = async () => {
   }
 };
 
-// Data de pokemon por nombre
+// Busca un Pokemon por su Nombre
 const findByName = async (name) => {
   try {
     const allPokemonData = await fullData();
@@ -268,7 +276,7 @@ const findByName = async (name) => {
   }
 };
 
-// Data de pokemon por id
+// Busca un Pokemon por su ID
 const findById = async (id) => {
   try {
     const allPokemonData = await fullData();

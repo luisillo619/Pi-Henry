@@ -10,7 +10,7 @@ import PokemonDetails from "./Components/Pokemon Details/PokemonDetails";
 function App() {
   const dispatch = useDispatch();
   const reloadPokemons = useSelector((state) => state.reloadPokemons);
-
+ 
   useEffect(() => {
     dispatch(getPokemons());
     dispatch(getTypes());

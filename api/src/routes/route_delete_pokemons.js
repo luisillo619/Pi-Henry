@@ -2,6 +2,7 @@ const { deleteById } = require("../controllers/controller_delete_pokemons");
 const express = require("express");
 const pokemonRoute = express.Router();
 
+// Ruta Para eliminar pokemon de la base de datos
 pokemonRoute.use("/:id", async (req, res) => {
   try {
     const { id } = req.params;

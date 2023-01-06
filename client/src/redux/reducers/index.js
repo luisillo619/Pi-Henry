@@ -14,7 +14,7 @@ let initialState = {
   currentPage: 1,
   reloadPokemons: null,
   pokemonIdList: null,
-  reset: null
+  reset: null,
 };
 
 export default function getReducers(state = initialState, { type, payload }) {
@@ -59,7 +59,6 @@ export default function getReducers(state = initialState, { type, payload }) {
       return {
         ...state,
         currentPage: 1,
-       
       };
 
     case "RELOAD_POKEMONS":
@@ -73,8 +72,6 @@ export default function getReducers(state = initialState, { type, payload }) {
         ...state,
         pokemons: [...state.pokemons].filter((e) => e.id !== payload),
       };
-
-  
 
     default:
       return { ...state };
