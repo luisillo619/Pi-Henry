@@ -15,7 +15,6 @@
   }
 
 .containerNumberPages {
-  border: 2px solid red;
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
@@ -23,7 +22,6 @@
 }
 
 .containerBoronesPaginado {
-
   display: inline-block;
   flex-wrap: wrap;
 

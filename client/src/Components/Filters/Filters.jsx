@@ -16,7 +16,7 @@ const initialState = {
 function Select({ options, value, onChange, name }) {
   return (
 
-      <select id={name} name={name} value={value} onChange={onChange}>
+      <select  className="" id={name} name={name} value={value} onChange={onChange}>
         <option value="Selected Option">Selected Option</option>
         {options.map((option) => (
           <option key={option.id} value={option.name}>
@@ -138,7 +138,7 @@ const Filters = () => {
         <div className="container-Sort_Types">
            {/* pokemonsSorted */}
           <div className='container-Sort'>
-            <label htmlFor="pokemonsSorted">Sort pokemon by:</label>
+            <label htmlFor="pokemonsSorted">Pokémon by </label>
             <Select
               options={optionsSorted}
               value={state.pokemonsSorted}
@@ -147,8 +147,8 @@ const Filters = () => {
             />
           </div>
           {/* pokemonsTypes */}
-          <div className="container-Sort">
-            <label htmlFor="pokemonsTypes">pokemons Types:</label>
+          <div className="container-Types">
+            <label htmlFor="pokemonsTypes">Pokémons Types</label>
             <Select
               options={types} // Agregar los tipos de la DB
               value={state.pokemonsTypes}

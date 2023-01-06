@@ -32,6 +32,7 @@
     font-size: 38px;
     color: white;
 }
+
 .container-Search input {
     width: 100%;
     height: 30px;
@@ -41,13 +42,15 @@
 
 .paragraph-Search {
     color: white;
-    font-size: 15px;
+    font-size: 18px;
     grid-column: 2/3;
+    background: #4DAD5B;
     width: 100%;
-    height: 30px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
 .boton-Reset {
@@ -74,7 +77,6 @@
 
 .container-From {
     margin: 10px 0;
-    border: 2px solid yellow;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -89,17 +91,18 @@
     width: 30%;
     height: 35px;
     border-radius: 5px;
-    background: red;
+    background: #2a9d8f;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .container-From_Created {
     width: 30%;
-    height: 35px;
+    height: 40px;
     border-radius: 5px;
-    background: red;
+    background: #ffc300;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,23 +112,84 @@
     width: 30%;
     height: 35px;
     border-radius: 5px;
-    background: rgb(165, 102, 102);
+    background: #9b5de5;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
-
-
-
-
 .container-Sort_Types {
     margin: 10px 0;
-    border: 2px solid rgb(80, 46, 46);
     display: flex;
     justify-content: space-between;
 }
+
+.container-Sort label, .container-Types label {
+    margin-right: 10px;
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .container-SearchName{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .container-Search {
+      grid-column: 1/2;
+    }
+
+    .container-Search input {
+        height: 40px;
+    }
+
+    .paragraph-Search {
+      grid-column: 1/2;
+      height: 100px;
+    }
+
+    .container-From {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .container-From_All {
+        width: 250px;
+        height: 35px;
+        margin-bottom: 10px;
+    }
+    
+    .container-From_Created {
+        width: 250px;
+        height: 35px;
+        margin-bottom: 10px;
+    }
+    
+    .container-From_NoCreated {
+        width: 250px;
+        height: 35px;
+        margin-bottom: 10px;
+    }
+
+    .container-Sort_Types {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-Types, .container-Sort {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .boton-Reset button img {    
+        width: 35px;
+    }
+}
+
 
 
 
