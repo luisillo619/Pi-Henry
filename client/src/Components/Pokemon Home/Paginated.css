@@ -1,9 +1,9 @@
 .button {
     height: 40px;
     width: 40px;
-    margin: 5px;
+    margin: 10px 0;
     font-size: 20px;
-    background: #30A7D7;/*#657fc1*/
+    background: #30A7D7;
     color: white;
     font-weight: bold;
     border: none;
@@ -11,18 +11,25 @@
 }
   
 .active {
-  background: #1B53BA;/*177ea7*/
+  background: #1B53BA;
   }
 
-.containerBoronesPaginado {
-  border: 1px solid red;
-  display: inline-block;
+.containerNumberPages {
+  border: 2px solid red;
+  display: flex;
   margin: 0 auto;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.containerBoronesPaginado {
+
+  display: inline-block;
   flex-wrap: wrap;
+
 }
 
 .containerNextPrev {
-  /* border: 1px solid green; */
   display: flex;
   justify-content: space-between;
 }
@@ -33,15 +40,11 @@
   color: white;
   height: 30px;
   width: 60px;
-  background: #e83626;/*6a4c93*/
+  background: #e83626;
   border: none;
   border-radius: 3px;
 }
 
-.containerNumberPages {
-  border: 3px solid rgb(7, 3, 252);
-  margin: 0 auto;
-}
 
 @media screen and (max-width: 333px) {
   .button {
@@ -49,5 +52,9 @@
     width: 30px;
     margin: 5px;
     font-size: 16px;
+  }
+
+  .containerNumberPages {
+    width: 250px;
   }
 }

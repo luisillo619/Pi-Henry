@@ -61,6 +61,10 @@
  font-weight: bold;
 }
 
+.create-pokemon__button:hover {
+  cursor: pointer;
+}
+
 .create-pokemon-selected-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

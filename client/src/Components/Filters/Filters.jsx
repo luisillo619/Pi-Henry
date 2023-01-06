@@ -2,7 +2,7 @@ import React from "react";
 import useFilter from "../../hooks/useFilter";
 import { optionsSorted } from "../../helpers/options";
 import "./Filters.css";
-
+import pikachuIcon from "../../assets/pikachu_icon-icons.com_67535.png"
 // Estado Inicial
 const initialState = {
   pokemonsFrom: "",
@@ -15,14 +15,16 @@ const initialState = {
 // Componente que ayuda a rendirizar select-option, en los input de filtrado
 function Select({ options, value, onChange, name }) {
   return (
-    <select id={name} name={name} value={value} onChange={onChange}>
-      <option value="Selected Option">Selected Option</option>
-      {options.map((option) => (
-        <option key={option.id} value={option.name}>
-          {option.name}
-        </option>
-      ))}
-    </select>
+
+      <select id={name} name={name} value={value} onChange={onChange}>
+        <option value="Selected Option">Selected Option</option>
+        {options.map((option) => (
+          <option key={option.id} value={option.name}>
+            {option.name}
+          </option>
+        ))}
+      </select>
+
   );
 }
 
@@ -60,78 +62,105 @@ const Filters = () => {
   // Renderizado de las opciones para filtrar
   return (
     <div className="container-Filters">
-      {/* reiniciar */}
-      <button onClick={handleClick}>Reiniciar</button>
 
+       {/*---------- pokemonNames-------------- */}
+       <div className="container-Generale__SearchName">
+         <div className="container-SearchName">
+          <div className="container-Search">
+            <p htmlFor="pokemonNames">Name</p>
+            <input
+              type="search"
+              list="names"
+              id="pokemonNames"
+              name="pokemonNames"
+              value={state.pokemonNames}
+              onChange={handleChange}
+              placeholder="Pokemon Name"
+            />
+            <datalist id="names">
+              {nameOptions(pokemons, state.pokemonNames)}
+            </datalist>
+          </div>
+          <div className="paragraph-Search">
+            <p>Busca tu Pokémon favorito por su nombre</p>
+          </div>
+        </div>
+         {/* reiniciar */}
+        <div className="boton-Reset">
+          <button onClick={handleClick}><img src={pikachuIcon} alt="" /></button>
+        </div>
+       
+       </div>
+      {/*------------------------------------------------------- */}
+      
+      <div className="containerFrom_Sort">
       {/* pokemonsFrom */}
-      <div>
-        <label htmlFor="All pokemons">All pokemons</label>
-        <input
-          type="radio"
-          id="All pokemons"
-          name="pokemonsFrom"
-          onChange={handleChange}
-          value="All pokemons"
-          checked={state.pokemonsFrom === "All pokemons"}
-        />
-        <label htmlFor="Pokemons created">Pokemons created</label>
-        <input
-          type="radio"
-          id="Pokemons created"
-          name="pokemonsFrom"
-          onChange={handleChange}
-          value="Pokemons created"
-          checked={state.pokemonsFrom === "Pokemons created"}
-        />
-        <label htmlFor="Pokemons not created">Pokemons not created</label>
-        <input
-          type="radio"
-          id="Pokemons not created"
-          name="pokemonsFrom"
-          onChange={handleChange}
-          value="Pokemons not created"
-          checked={state.pokemonsFrom === "Pokemons not created"}
-        />
+        <div className="container-From">
+
+          <div className="container-From_All">
+            <label htmlFor="All pokemons">All pokemons</label>
+            <input
+              type="radio"
+              id="All pokemons"
+              name="pokemonsFrom"
+              onChange={handleChange}
+              value="All pokemons"
+              checked={state.pokemonsFrom === "All pokemons"}
+            
+            />
+          </div>
+
+          <div className="container-From_Created">
+            <label htmlFor="Pokemons created">Pokemons created</label>
+            <input
+              type="radio"
+              id="Pokemons created"
+              name="pokemonsFrom"
+              onChange={handleChange}
+              value="Pokemons created"
+              checked={state.pokemonsFrom === "Pokemons created"}
+            />
+          </div>
+
+          <div className="container-From_NoCreated">
+            <label htmlFor="Pokemons not created">Pokemons not created</label>
+            <input
+              type="radio"
+              id="Pokemons not created"
+              name="pokemonsFrom"
+              onChange={handleChange}
+              value="Pokemons not created"
+              checked={state.pokemonsFrom === "Pokemons not created"}
+            />
+          </div>
+        </div>
+        
+        <div className="container-Sort_Types">
+           {/* pokemonsSorted */}
+          <div className='container-Sort'>
+            <label htmlFor="pokemonsSorted">Sort pokemon by:</label>
+            <Select
+              options={optionsSorted}
+              value={state.pokemonsSorted}
+              onChange={handleChange}
+              name="pokemonsSorted"
+            />
+          </div>
+          {/* pokemonsTypes */}
+          <div className="container-Sort">
+            <label htmlFor="pokemonsTypes">pokemons Types:</label>
+            <Select
+              options={types} // Agregar los tipos de la DB
+              value={state.pokemonsTypes}
+              onChange={handleChange}
+              name="pokemonsTypes"
+            />
+          </div>
+        </div>
       </div>
 
-      {/* pokemonsSorted */}
-      <div>
-        <label htmlFor="pokemonsSorted">Sort pokemon by:</label>
-        <Select
-          options={optionsSorted}
-          value={state.pokemonsSorted}
-          onChange={handleChange}
-          name="pokemonsSorted"
-        />
-      </div>
-
-      {/* pokemonsTypes */}
-      <div>
-        <label htmlFor="pokemonsTypes">pokemons Types:</label>
-        <Select
-          options={types} // Agregar los tipos de la DB
-          value={state.pokemonsTypes}
-          onChange={handleChange}
-          name="pokemonsTypes"
-        />
-      </div>
-
-      {/* pokemonNames */}
-      <div>
-        <label htmlFor="pokemonNames">Pokemons by name:</label>
-        <input
-          type="search"
-          list="names"
-          id="pokemonNames"
-          name="pokemonNames"
-          value={state.pokemonNames}
-          onChange={handleChange}
-          placeholder="Pokemon Name"
-        />
-        <datalist id="names">
-          {nameOptions(pokemons, state.pokemonNames)}
-        </datalist>
-      </div>
+  
+      
     </div>
   );
 };
