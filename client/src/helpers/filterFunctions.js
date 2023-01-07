@@ -48,10 +48,12 @@ export const pokemonsSorted = (filter, pokemons) => {
     );
     return pokemonsMin_Max__attack;
   }
+  // else if (filter === "attack menor: attack menor") {
+  //   return pokemonCopy.filter(e=>parseInt(e.attack) > 100)
+  // }
 };
 
 export const pokemonsTypes = (filter, pokemons) => {
-  
   const pokemonType = pokemons.filter((e) => e.types.includes(filter));
   return pokemonType;
 };

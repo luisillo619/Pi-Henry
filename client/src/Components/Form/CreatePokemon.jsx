@@ -401,7 +401,8 @@ function CreatePokemon() {
             />
           </div>
 
-          <div className="create-pokemon__block">
+          {/*--Los tipos seleccionados en add Types y select Types--*/}
+          <div>
             <div className="create-pokemon-selected-container">
               {form.types ? selectedTypes() : null}
             </div>
@@ -409,8 +410,10 @@ function CreatePokemon() {
               <p className="create-pokemon__error">{errors.type}</p>
             )}
           </div>
+          {/*--------------------------------*/}
 
-          <div className="create-pokemon__block">
+          {/*----------------Boton Submit----------------*/}
+          <div >
             <input
               className="create-pokemon__button"
               type="submit"

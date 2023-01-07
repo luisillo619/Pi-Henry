@@ -3,13 +3,17 @@ import useFilter from "../../hooks/useFilter";
 import { optionsSorted } from "../../helpers/options";
 import "./Filters.css";
 import pikachuIcon from "../../assets/pikachu_icon-icons.com_67535.png"
+import { filterAttack } from "../../redux/actions";
+import { useDispatch } from "react-redux";
 // Estado Inicial
 const initialState = {
   pokemonsFrom: "",
   pokemonsSorted: "",
   pokemonsTypes: "",
   pokemonNames: "",
+  pokemonAttack: ""
 };
+
 
 
 // Componente que ayuda a rendirizar select-option, en los input de filtrado
@@ -54,12 +58,14 @@ const filterValidations = (state, dispatch, addFilter) => {
 
 // Componente que guarda un estado de todos los filtros y ordenamientos que se apliquen a los Pokemons
 const Filters = () => {
-
+  const dispatchh = useDispatch()
   // Se mandan como props el validador y el estado inicial a useFilter
   const { state, handleChange, pokemons, nameOptions, handleClick, types } =
     useFilter(filterValidations, initialState);
 
   // Renderizado de las opciones para filtrar
+
+ 
   return (
     <div className="container-Filters">
 

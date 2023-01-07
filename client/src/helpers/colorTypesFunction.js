@@ -62,7 +62,7 @@ export const colorTypes = (e) =>{
         color = "#FDB9E9";
         break;
       default:
-        color = "white";
+        color = "black";
     }
     return color
 };

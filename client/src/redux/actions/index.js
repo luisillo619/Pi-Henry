@@ -190,6 +190,14 @@ const callServer =
       });
   };
 
+
+ 
+
+
+
+
+
+
 // export const getPokemons = () => (dispatch) => {
 //   return callServer("http://localhost:3001/pokemons", GET_POKEMONS)(dispatch);
 // };

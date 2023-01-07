@@ -17,15 +17,17 @@ function useForm(initialForm, validateForm) {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
 
+  // Estado que setea los errores
   useEffect(() => {
     setErrors(validateForm(form, pokemons));
   }, [form]);
 
+  // Setea las option con la funcion de optionsTypes
   useEffect(() => {
     setOptions(optionsType);
   }, []);
 
-  // FUNCIONES AUXILIARES QUE RETORNAN HTML
+  // funcion que mapea los tipos en las opciones del Select 
   const typeOptions = () => {
     return options.map((e) => {
       return (
@@ -42,7 +44,7 @@ function useForm(initialForm, validateForm) {
       const id = generateUUID();
       return (
         <input
-        className="create-pokemon-selected"
+          className="create-pokemon-selected"
           onClick={isTypeSelectedByClick}
           style={{background: color}}
           id={id}

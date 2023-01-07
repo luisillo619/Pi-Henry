@@ -19,7 +19,7 @@ function PokemonsHome() {
   const currentPage = useSelector((state) => state.currentPage);
   const POKEMONS_PER_PAGE = 12;
   let pages = null;
-  
+
   if (filters.pokemonsFrom)
     pokemons = pokemonsFrom(filters.pokemonsFrom, pokemons);
 
@@ -32,6 +32,7 @@ function PokemonsHome() {
   if (filters.pokemonNames)
     pokemons = pokemonNames(filters.pokemonNames, pokemons);
 
+  
   pages = Math.ceil(pokemons.length / POKEMONS_PER_PAGE)
 
   useEffect(() => {

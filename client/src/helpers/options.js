@@ -5,6 +5,7 @@ export const optionsSorted = [
   { name: "Weight sort: max - min", id: "Max-Min_weight" },
   { name: "Attack power: min - max", id: "Min-Max_attack" },
   { name: "Attack power: max - min", id: "Max-Min_attack" },
+  // {name: "attack menor: attack menor", id: "AttackMenor"}
 ];
 
 export const optionsType = [

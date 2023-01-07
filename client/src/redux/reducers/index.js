@@ -15,6 +15,7 @@ let initialState = {
   reloadPokemons: null,
   pokemonIdList: null,
   reset: null,
+ 
 };
 
 export default function getReducers(state = initialState, { type, payload }) {
